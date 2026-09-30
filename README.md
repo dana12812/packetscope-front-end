@@ -5,7 +5,7 @@
 PacketScope is a full-stack web application (**React + FastAPI + PostgreSQL**) that turns raw `.pcap` capture files into a clear, organized view of network traffic. Upload a capture and the backend parses it with [Scapy](https://scapy.net/), showing you protocols, top talkers and packet-level detail — then lets you tag and annotate every capture so nothing gets lost.
 
 
-![PacketScope dashboard](docs/landing.png)
+![PacketScope dashboard](docs/Landing.png)
 
 🌐 **Live app:** _coming soon_ 
 
