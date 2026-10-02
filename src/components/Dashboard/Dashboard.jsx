@@ -44,7 +44,7 @@ const Dashboard = () => {
   return (
     <main className="dashboard">
       <header className="dashboard-header">
-        <h1 className="dashboard-title">My Captures</h1>
+        <h1 className="dashboard-title">{user.username}'s Captures</h1>
         <p className="dashboard-count">{captures.length} captures</p>
       </header>
 
@@ -81,3 +81,5 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+
