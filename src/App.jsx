@@ -7,6 +7,7 @@ import SignUpForm from './components/SignUpForm/SignUpForm';
 import SignInForm from './components/SignInForm/SignInForm';
 import Dashboard from './components/Dashboard/Dashboard';
 import Landing from './components/Landing/Landing';
+import CaptureDetail from './components/CaptureDetail/CaptureDetail';
 
 // Context
 import { UserContext } from './contexts/UserContext';
@@ -21,6 +22,7 @@ const App = () => {
         <Route path='/' element={user ? <Dashboard /> : <Landing />} />
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path='/sign-in' element={<SignInForm />} />
+        <Route path='/captures/:captureId' element={user ? <CaptureDetail /> : <Landing />} />
       </Routes>
     </>
   );
