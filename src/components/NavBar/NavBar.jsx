@@ -1,33 +1,19 @@
-import { useContext } from 'react';
-import { Link } from 'react-router';
-import { UserContext } from '../../contexts/UserContext';
-import { removeToken } from '../../lib/helpers/jwt-helpers';
+import { Link, useLocation } from 'react-router';
+import { Logo } from '../Sidebar/Sidebar';
 
+// Top navigation for signed-out visitors (signed-in users get the sidebar instead)
 const NavBar = () => {
-  const { user, setUser } = useContext(UserContext)
-
-  const handleSignOut = () => {
-    removeToken()
-    setUser(null)
-  }
+  const { pathname } = useLocation()
+  const onLanding = pathname === '/'
 
   return (
-    <nav>
+    <nav className={`public-nav ${onLanding ? 'is-dark' : ''}`}>
       <ul>
-        {user
-          ?
-          <>
-            <li>Hello {user.username}</li>
-            <li><Link to="/">Dashboard</Link></li>
-            <li><Link to="/" onClick={handleSignOut}>Sign Out</Link></li>
-          </>
-          :
-          <>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to='/sign-up'>Sign Up</Link></li>
-            <li><Link to='/sign-in'>Sign In</Link></li>
-          </>
-        }
+        <li className="nav-brand"><Link to="/" aria-label="PacketScope home"><Logo /></Link></li>
+        {onLanding && <li className="nav-section"><a href="#features">Features</a></li>}
+        {onLanding && <li className="nav-section"><a href="#how-it-works">How it works</a></li>}
+        <li><Link to='/sign-in'>Sign In</Link></li>
+        <li><Link className="nav-cta" to='/sign-up'>Get Started</Link></li>
       </ul>
     </nav>
   );
