@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router';
+import { useParams, Link, useNavigate } from 'react-router';
 import * as captureService from '../../services/captureService';
 import * as annotationService from '../../services/annotationService';
 import * as tagService from '../../services/tagService';
 
 const CaptureDetail = () => {
   const { captureId } = useParams();
+  const navigate = useNavigate();
   const [capture, setCapture] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -83,6 +84,16 @@ const CaptureDetail = () => {
     }
   };
 
+  const handleDeleteCapture = async () => {
+    if (!window.confirm('Delete this capture? This cannot be undone.')) return;
+    try {
+      await captureService.remove(capture.id);
+      navigate('/');
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   if (loading) return <p className="loading">Loading capture…</p>;
   if (error) return <p className="error">{error}</p>;
   if (!capture) return null;
@@ -97,6 +108,7 @@ const CaptureDetail = () => {
         <h1 className="detail-title">{capture.filename}</h1>
         <div className="detail-actions">
           <Link className="btn" to={`/captures/${capture.id}/edit`}>Edit</Link>
+          <button className="btn btn-danger" onClick={handleDeleteCapture}>Delete</button>
         </div>
       </header>
 
