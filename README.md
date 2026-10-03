@@ -98,7 +98,7 @@ cd packetscope-front-end
 npm install
 ```
 
-Create a `.env` file in the project root:
+Copy `.env.example` to `.env` in the project root:
 
 ```
 VITE_BACK_END_SERVER_URL=http://localhost:8000/api
