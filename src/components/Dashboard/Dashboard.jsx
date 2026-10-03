@@ -9,6 +9,9 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [file, setFile] = useState(null);
   const [error, setError] = useState('');
+    const totalCaptures = captures.length;
+  const totalPackets = captures.reduce((sum, c) => sum + (c.packet_count || 0), 0);
+  const avgPackets = totalCaptures ? Math.round(totalPackets / totalCaptures) : 0;
 
   useEffect(() => {
     async function loadCaptures() {
@@ -59,6 +62,21 @@ const Dashboard = () => {
         />
         <button className="btn btn-primary" disabled={!file}>Upload</button>
       </form>
+      
+          <section className="stats">
+        <div className="stat-card stat-aqua">
+          <span className="stat-value">{totalCaptures}</span>
+          <span className="stat-label">Total Captures</span>
+        </div>
+        <div className="stat-card stat-purple">
+          <span className="stat-value">{totalPackets.toLocaleString()}</span>
+          <span className="stat-label">Total Packets</span>
+        </div>
+        <div className="stat-card stat-yellow">
+          <span className="stat-value">{avgPackets.toLocaleString()}</span>
+          <span className="stat-label">Avg Packets / Capture</span>
+        </div>
+      </section>
 
       {captures.length === 0 ? (
         <p className="empty-state">No captures yet. Upload a .pcap to get started.</p>

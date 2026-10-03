@@ -85,7 +85,6 @@ const CaptureDetail = () => {
   };
 
   const handleDeleteCapture = async () => {
-    if (!window.confirm('Delete this capture? This cannot be undone.')) return;
     try {
       await captureService.remove(capture.id);
       navigate('/');
