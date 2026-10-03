@@ -21,3 +21,6 @@ yarn-debug.log*
 .idea/
 .DS_Store
 *.sw?
+.vercel
+.env*
+!.env.example

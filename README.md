@@ -119,7 +119,7 @@ npm run dev
 
 ## Database design
 
-The back end uses **PostgreSQL** with six tables:
+The back end uses **PostgreSQL**, hosted on **[Neon](https://neon.tech)**, with six tables:
 
 | Table | Purpose |
 |---|---|
@@ -141,6 +141,7 @@ A user has many captures, notes and tags; a capture has many notes. See the full
 | **Charts & icons** | Hand-built inline SVG (no chart or icon library) |
 | **Data** | Fetch API (AJAX) to the PacketScope REST API, JWT in `localStorage` |
 | **Back end** | Python, FastAPI, SQLAlchemy, Pydantic, PostgreSQL, Scapy, PyJWT, bcrypt |
+| **Deployment** | [Vercel](https://vercel.com) (front end), [Render](https://render.com) (API), [Neon](https://neon.tech) (PostgreSQL database) |
 | **Planning** | DrawSQL |
 
 ## Attributions
