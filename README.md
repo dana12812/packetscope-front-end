@@ -6,7 +6,7 @@
 
 PacketScope is a full-stack cybersecurity web app (**React + FastAPI + PostgreSQL**) for analyzing network packet captures. Upload a `.pcap` or `.pcapng` file and the back end parses it with [Scapy](https://scapy.net/); the front end turns the result into a clear picture of the traffic — protocols, top talkers, services and packet sizes — and keeps every analysis organized with tags and notes.
 
-🌐 **Live app:** _link coming after deployment_
+🌐 **Live app:** [https://packetscope-psi.vercel.app](https://packetscope-psi.vercel.app)
 
 ⚙️ **Back-end repo:** [packetscope-back-end](https://github.com/dana12812/packetscope-back-end)
 
@@ -86,7 +86,7 @@ Guests (signed out) can only see the landing, sign-in and sign-up pages. Edit an
 
 ## Getting started
 
-- **Live app:** _link coming after deployment_
+- **Live app:** [https://packetscope-psi.vercel.app](https://packetscope-psi.vercel.app)
 - **Back-end repo:** [packetscope-back-end](https://github.com/dana12812/packetscope-back-end)
 - **Planning materials:** see [below](#planning-materials)
 
